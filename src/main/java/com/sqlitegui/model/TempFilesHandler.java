@@ -35,8 +35,9 @@ public class TempFilesHandler {
 
     public static List<String> getRecentFiles()
     {
-        File file = new File("recent.dat");
+        File file = new RecentFile("recent.dat");
         try {
+            file.createNewFile();
             BufferedReader reader = new BufferedReader(new FileReader(file));
             ArrayList<String> list = new ArrayList<>();
             String line;
