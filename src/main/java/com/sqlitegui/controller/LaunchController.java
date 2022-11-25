@@ -10,14 +10,11 @@ import com.sqlitegui.App;
 import com.sqlitegui.model.AppHandler;
 import com.sqlitegui.model.TempFilesHandler;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 public class LaunchController implements Initializable {
     @FXML
@@ -40,7 +37,7 @@ public class LaunchController implements Initializable {
     @FXML
     private void openFileClick() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SQLite files (.sqlite)", "*.sqlite"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("DataBase files", "*.db"));
         File file = fileChooser.showOpenDialog(App.getStage());
         if (file == null)
             return;
@@ -52,7 +49,7 @@ public class LaunchController implements Initializable {
     @FXML
     private void selectFileClick() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SQLite files (.sqlite)", "*.sqlite"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("DataBase files", "*.db"));
         File file = fileChooser.showOpenDialog(App.getStage());
         if (file == null)
             return;

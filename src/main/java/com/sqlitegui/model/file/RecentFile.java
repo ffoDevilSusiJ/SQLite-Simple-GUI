@@ -17,6 +17,7 @@ public class RecentFile extends File {
     public boolean recordExists(String data) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(this));
+            
             reader.mark(1000);
             String line = null;
             while ((line = reader.readLine()) != null) {
