@@ -1,0 +1,12 @@
+#recent:hover
+{
+    -fx-background-color: lightgray;
+    -fx-border-color: gray;
+    -fx-border-width: 1 ; 
+    -fx-border-style: segments(0, 1, 0, 0)  line-cap round ;
+}
+
+#recent:pressed 
+{
+    -fx-background-color: gray;
+}
