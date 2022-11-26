@@ -14,7 +14,11 @@ public class Column {
     public void addValueToColumn(String id, String value) {
         values.put(id, value);
     }
-
+    
+    public String getName() {
+        return name;
+    }
+    
     public HashMap<String, String> getValues() {
         return values;
     }

@@ -8,7 +8,7 @@
 ## Features
 
 - ✅ Launch sreen(Open/New/Recent Files)
-- ❌ Database processing (Tabular view)
+- ✅ Database processing (Tabular view)
 - ❌ Creating tables
 - ❌ Add/Delete/Edit Columns
 - ❌ Add/Delete/Change Records
