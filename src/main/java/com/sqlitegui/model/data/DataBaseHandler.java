@@ -46,13 +46,10 @@ public class DataBaseHandler {
                     if (i != 1)
                         rs = ps.executeQuery();
                     Column column = new Column(rs.getMetaData().getColumnName(i));
-                    int j = 0;
+                    int j = 0; // Row index
                     while (rs.next()) {
                         j++;
-                        if (i == 1)
-                            column.addValueToColumn(String.valueOf(j), rs.getString(i));
-                        else
-                            column.addValueToColumn(rs.getString(1), rs.getString(i));
+                        column.addValueToColumn(String.valueOf(j), rs.getString(i));
                     }
                     lolacTable.addColumn(column);
                 }
@@ -79,6 +76,32 @@ public class DataBaseHandler {
             e.printStackTrace();
         }
         return tables;
+
+    }
+
+    public void saveAllChanges(ArrayList<Table> tables) {
+        Connection conn = getSqlConnection();
+        String quary = "Update";
+        ResultSet tableSet;
+           
+            for (Table table : tables) {
+                for (int i = 0; i < table.getColumnCount(); i++) {
+                    Column column = table.getColumns().get(i);
+                    quary = "UPDATE " + table.getName() + " SET ";
+                    for (int j = 0; j < table.getRowCount(); j++) {
+                        quary += column.getName() + " = '" + column.getValues().get(String.valueOf(j + 1)) + "'";
+                        quary += " WHERE " + table.getColumns().get(0).getName() + " = " + column.getKeys().get(j);
+                        System.out.println(quary);
+                        quary = "UPDATE " + table.getName() + " SET ";
+                    }
+                    
+                }
+                
+            }
+            
+
+
+       
 
     }
 }

@@ -9,9 +9,10 @@ import com.sqlitegui.model.data.Table;
 public class AppHandler {
     private static File file;
     private static ArrayList<Table> tables;
+    private static DataBaseHandler dHandler;
     public static void load()
     {
-        DataBaseHandler dHandler = new DataBaseHandler(file.getAbsolutePath(), "root", "");
+        dHandler = new DataBaseHandler(file.getAbsolutePath(), "root", "");
         new Thread(() -> {
             tables = dHandler.getTablesFromDB();
 
@@ -23,6 +24,9 @@ public class AppHandler {
     public static void setFile(File file) {
         AppHandler.file = file;
         
+    }
+    public static DataBaseHandler getdHandler() {
+        return dHandler;
     }
     public static File getFile() {
         return file;
